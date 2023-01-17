@@ -1,13 +1,23 @@
-- name: "manage worker1 and 2"
-  hosts: all
+- name: "manage worker 1"
   become: true
   tasks:
-  - name: "ensure Amit user exists"
-    user:
-      name: amit
-      state: absent
-  - name: "ensure Alex user exists"
-    user:
-      name: alex
-      state: absent
-      
+  - name: "clone addressbook repo"
+      repo: https://github.com/marysh995/addressbook.git
+      dest: /src/addressbook
+  
+   - name: "Maven Build"
+       runs-on: ubuntu-latest
+       steps:
+         - name: "Checkout Sources"
+           uses: actions/checkout@v2
+           with:
+             fetch-depth: 2
+         - name: "Set up JDK"
+           uses: actions/setup-java@v2
+           with:
+             distribution: "temurin"
+             java-version: 11
+             cache: "maven"
+         - name: "Build with Maven"
+            run: mvn verify
+
