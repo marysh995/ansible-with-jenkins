@@ -1,6 +1,6 @@
 - name: "manage worker 1"
   become: true
-  tasks:
-  - name: Install maven
-      roles:
-        - maven
+ - hosts: worker 1
+  roles:
+    - role: gantsign.maven
+      maven_version: '3.3.9'
