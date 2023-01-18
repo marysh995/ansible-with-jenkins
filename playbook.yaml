@@ -5,9 +5,7 @@
     - name: "install maven"
       become: true
       apt: 
-            pkg: 
-            with_items:
-              - "{{ foo }}"
+            pkg:
             state: latest 
             update_cache: yes 
             cache_valid_time: 3600
