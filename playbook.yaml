@@ -1,17 +1,17 @@
 - name: "manage worker 1"
   hosts: "web"
   become: true
-  tasks:   
+  tasks:
     - name: "Download Apache Maven"
       url: https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz dest=/opt
-    - name: "untar maven" 
+    - name: "untar maven"
       command: tar xvf /opt/apache-maven-3.8.6-bin.tar.gz -C /opt
-    - name: "Move to a smaller directory" 
+    - name: "Move to a smaller directory"
       command: mv /opt/apache-maven-3.8.6 /opt/maven
-    - name: "file created" 
+    - name: "file created"
       file: 
           path: /etc/profile.d/maven.sh state=touch
-    - name: "copy content" 
+    - name: "copy content"
       copy: 
           content: "export JAVA_HOME=/usr/lib/jvm/default-java export M2_HOME=/opt/maven export MAVEN_HOME=/opt/maven export PATH=${M2_HOME}/bin:${PATH}" 
           dest: /etc/profile.d/maven.sh
