@@ -1,6 +1,12 @@
 - name: "manage worker 1"
+  hosts: "web"
   become: true
- - hosts: web
-  roles:
-    - role: gantsign.maven
-      maven_version: '3.3.9'
+  tasks:
+    - name: "maven build"
+      become: true
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - maven
