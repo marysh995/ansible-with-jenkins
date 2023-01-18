@@ -1,6 +1,6 @@
 - name: "manage worker 1"
   become: true
- - hosts: worker1
+ - hosts: web
   roles:
     - role: gantsign.maven
       maven_version: '3.3.9'
