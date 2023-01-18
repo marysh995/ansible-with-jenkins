@@ -1,1 +1,1 @@
-worker1 ansible_host=ip-172-31-56-112
+web ansible_host=ip-172-31-56-112
