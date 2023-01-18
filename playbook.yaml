@@ -2,12 +2,28 @@
   hosts: "web"
   become: true
   tasks:
-    - name: "install maven"
+    
+  - name: "Update APT package manager repositories cache "
+    become: true
+    apt: 
+      update_cache: yes
+
+   - name: "Download Apache Maven"
+     become: true
+      get_url: url=https://mirrors.estointernet.in/apache/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz dest=/tmp/apache-maven-3.8.1-bin.tar.gz
+
+   - name: "Untar Maven" 
       become: true
-      apt: 
-            pkg:
-            state: latest 
-            update_cache: yes 
-            cache_valid_time: 3600
-      with_items:
-        - maven
+      shell: chdir=/tmp creates=/opt/apache-maven-3.8.1 tar -zxf apache-maven-3.8.1-bin.tar.gz -C /opt
+
+   - name: "Set MAVEN_HOME"
+      become: true
+      lineinfile:
+         dest: /etc/profile.d/maven.sh
+         create: yes
+         state: present
+         mode: '0744' 
+         line: '{{ item }}' with_items:
+            'export M2_HOME=/opt/apache-maven-3.8.1'
+            'export MAVEN_HOME=/opt/apache-maven-3.8.1'
+            'export PATH=${M2_HOME}/bin:${PATH}'
