@@ -3,12 +3,13 @@
   become: true
   tasks:
     - name: "install maven"
-      become: true
+      become: yes
       apt:
-        packageType: 'maven' 
-        state: latest 
-        update_cache: yes 
-        cache_valid_time: 3600
-      
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - maven
+
 
  
