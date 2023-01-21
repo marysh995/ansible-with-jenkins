@@ -2,7 +2,14 @@
   hosts: "web"
   become: true
   tasks:
-    roles:
-    - role: gantsign.maven
+   - name: "install maven on your local Ubuntu machine"
+     apt: 
+        pkg: "{{ item }}"
+          state: latest 
+          update_cache: yes 
+          cache_valid_time: 3600
+            with_items:
+              - maven
+              - apache2
 
  
