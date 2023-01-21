@@ -4,12 +4,11 @@
   tasks:
    - name: "install maven"
      apt:
-        pkg: "{{ item }}"
+        pkg: "maven"
           state: present
           update_cache: yes
           cache_valid_time: 3600
-            with_items:
-              - maven
-              - apache2
+          
+              
 
  
