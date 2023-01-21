@@ -2,8 +2,7 @@
   hosts: "web"
   become: true
   tasks:
-    - name: "install maven"
-      roles:
-      - role: gantsign.maven
+    roles:
+    - role: gantsign.maven
 
  
