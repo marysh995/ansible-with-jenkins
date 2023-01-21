@@ -3,11 +3,7 @@
   become: true
   tasks:
     - name: "install maven"
-      become: true
-      apt:
-        name: "maven"
-        state: present
-        update_cache: yes
-      
+      roles:
+      - role: gantsign.maven
 
  
