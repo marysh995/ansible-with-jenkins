@@ -13,11 +13,14 @@
     apt:
       name: maven
       state: present
-     
-  - name: "package"
-    command: mvn package
+      
+  - name: "change the dir"
     chdir: /labsuser/CEB
       
+  - name: "package"
+    command: mvn package
+    
+  
           
               
 
