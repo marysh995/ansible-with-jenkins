@@ -3,9 +3,12 @@
   become: true
   tasks:
     apt:
-    - name: "maven"
-      state: present
-      update_cache: yes
+      - name: "maven"
+        state: present
+        update_cache: yes
+   - name: "clone addressbook repository"
+     repo: https://github.com/marysh995/addressbook.git
+     
           
               
 
