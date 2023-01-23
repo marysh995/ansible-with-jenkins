@@ -1,11 +1,13 @@
 - name: "manage worker 1"
-  hosts: "web"
+  hosts: web
   become: true
   tasks:
   - name: "clone addressbook repository"
     ansible.builtin.git:
      repo: https://github.com/marysh995/addressbook.git
-     
+     clone: yes
+     dest: /labsuser/CEB
+     update: yes
           
               
 
