@@ -5,9 +5,14 @@
   - name: "clone addressbook repository"
     ansible.builtin.git:
      repo: https://github.com/marysh995/addressbook.git
-     clone: yes
      dest: /labsuser/CEB
+     clone: yes
      update: yes
+  - name: "install maven"
+    apt:
+      - name: maven
+        state: present
+      
           
               
 
