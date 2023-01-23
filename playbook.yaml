@@ -14,11 +14,10 @@
       name: maven
       state: present
       
-  - name: "change the dir"
+  - name: "change the dir and package"
     chdir: /labsuser/CEB
-      
-  - name: "package"
     command: mvn package
+   
     
   
           
