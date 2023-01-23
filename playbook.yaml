@@ -1,6 +1,12 @@
 - name: "manage worker 1"
   hosts: web
   become: true
+  vars:
+      tomcat_ver: 9.0.64
+      ui_manager_user: admin
+      ui_manager_pass: Str0ngManagerP@ssw3rd
+      ui_admin_username: admin
+      ui_admin_pass: Str0ngAdminP@ssw3rd
   tasks:
   - name: "clone addressbook repository"
     ansible.builtin.git:
@@ -20,12 +26,6 @@
       chdir: /labsuser/CEB 
   
   - name: "install tomcat9"
-    vars:
-      tomcat_ver: 9.0.64
-      ui_manager_user: admin
-      ui_manager_pass: Str0ngManagerP@ssw3rd
-      ui_admin_username: admin
-      ui_admin_pass: Str0ngAdminP@ssw3rd
     roles:
       - tomcat
 
