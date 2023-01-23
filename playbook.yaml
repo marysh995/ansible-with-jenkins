@@ -13,6 +13,9 @@
     apt:
       name: maven
       state: present
+     
+  - name: "package"
+    command: mvn package
       
           
               
