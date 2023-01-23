@@ -16,6 +16,7 @@
      
   - name: "package"
     command: mvn package
+    chdir: /labsuser/CEB
       
           
               
