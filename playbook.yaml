@@ -11,8 +11,8 @@
      
   - name: "install maven"
     apt:
-      - name: maven
-        state: present
+      name: maven
+      state: present
       
           
               
