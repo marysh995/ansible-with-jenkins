@@ -15,8 +15,10 @@
       state: present
       
   - name: "change the dir and package"
-    chdir: /labsuser/CEB
     command: mvn package
+    args:
+      chdir: /labsuser/CEB 
+   
    
     
   
