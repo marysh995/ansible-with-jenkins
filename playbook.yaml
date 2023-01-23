@@ -8,6 +8,7 @@
      dest: /labsuser/CEB
      clone: yes
      update: yes
+     
   - name: "install maven"
     apt:
       - name: maven
