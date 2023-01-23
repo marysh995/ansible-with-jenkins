@@ -2,11 +2,12 @@
   hosts: "web"
   become: true
   tasks:
+  - name: "install maven"
     apt:
-      - name: "maven"
-        state: present
-        update_cache: yes
-   - name: "clone addressbook repository"
+    - name: "maven"
+      state: present
+      update_cache: yes
+  - name: "clone addressbook repository"
      repo: https://github.com/marysh995/addressbook.git
      
           
