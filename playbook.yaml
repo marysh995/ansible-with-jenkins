@@ -1,12 +1,6 @@
 - name: "manage worker 1"
   hosts: web
   become: true
-  vars:
-      tomcat_ver: 9.0.64
-      ui_manager_user: admin
-      ui_manager_pass: Str0ngManagerP@ssw3rd
-      ui_admin_username: admin
-      ui_admin_pass: Str0ngAdminP@ssw3rd
   tasks:
   - name: "clone addressbook repository"
     ansible.builtin.git:
@@ -23,13 +17,7 @@
   - name: "change the dir and package"
     command: mvn package
     args:
-      chdir: /labsuser/CEB 
-  
-  - name: "Update and upgrade apt packages"
-    apt:
-      upgrade: yes
-      update_cache: yes
-      cache_valid_time: 86400 #One day
+      chdir: /labsuser/CEB
 
   - name: "install JDK 11"
     apt:
