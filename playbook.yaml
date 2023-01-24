@@ -19,7 +19,7 @@
     args:
       chdir: /labsuser/CEB
 
-  - name: "install JDK 8"
+  - name: "install JDK"
     apt:
       name: openjdk-11-jdk
       state: present
