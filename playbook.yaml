@@ -58,9 +58,9 @@
       state: directory
 
   - name: "Start and enable Tomcat service"
-    command: ./startup.sh
+    shell: ./startup.sh
     args:
-      chdir: /opt/tomcat
+      chdir: /opt/tomcat/bin
           
               
 
