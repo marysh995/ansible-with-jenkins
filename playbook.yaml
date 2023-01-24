@@ -61,6 +61,11 @@
     shell: ./startup.sh
     args:
       chdir: /opt/tomcat/bin
+      
+  - name: "Copy war file "
+    copy:
+      src: /labsuser/CEB/targetaddressbook-2.0.war
+      dest: /opt/tomcat/webapps
           
               
 
