@@ -19,9 +19,9 @@
     args:
       chdir: /labsuser/CEB
 
-  - name: "install JDK 11"
+  - name: "install JDK 8"
     apt:
-      name: openjdk-11-jdk
+      name: openjdk-8-jdk
       state: present
 
   - name: "add tomcat group"
