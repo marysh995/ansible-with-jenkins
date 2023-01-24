@@ -64,7 +64,7 @@
       
   - name: "Copy war file "
     copy:
-      src: /labsuser/CEB/targetaddressbook-2.0.war
+      src: /labsuser/CEB/target/addressbook-2.0.war
       dest: /opt/tomcat/webapps
           
               
