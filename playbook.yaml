@@ -66,6 +66,7 @@
     copy:
       src: /labsuser/CEB/target/addressbook-2.0.war
       dest: /opt/tomcat/webapps
+      remote_src: yes
           
               
 
